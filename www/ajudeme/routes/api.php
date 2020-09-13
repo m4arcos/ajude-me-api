@@ -25,3 +25,11 @@ Route::prefix('donations')->group(function () {
     Route::put('/{id}', [App\Http\Controllers\DonationController::class, 'edit']);
     Route::delete('/{id}', [App\Http\Controllers\DonationController::class, 'delete']);
 });
+
+Route::prefix('needs')->group(function () {
+    Route::get('/', [App\Http\Controllers\NeedController::class, 'index']);
+    Route::post('/', [App\Http\Controllers\NeedController::class, 'create']);
+    Route::get('/{id}', [App\Http\Controllers\NeedController::class, 'show']);
+    Route::put('/{id}', [App\Http\Controllers\NeedController::class, 'edit']);
+    Route::delete('/{id}', [App\Http\Controllers\NeedController::class, 'delete']);
+});

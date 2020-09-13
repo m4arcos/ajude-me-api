@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Donation;
+use App\Models\Need;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,5 +16,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Donation::factory(6)->create();
+        Need::factory(6)->create();
     }
 }
