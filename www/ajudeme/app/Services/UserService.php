@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Services\BaseService;
 use App\Repositories\UserRepository;
+use Exception;
 
 class UserService extends BaseService {
 
@@ -30,6 +31,20 @@ class UserService extends BaseService {
         }
 
         return parent::edit($id, $data);
+    }
+
+    public function auth($mail, $pass) {
+        $user = $this->repository->findByMail($mail);
+
+        if (empty($user)) {
+            throw new Exception('Não foi possível autenticar', 400);
+        }
+
+        if ($user->password != md5($pass)) {
+            throw new Exception('Não foi possível autenticar', 400);
+        }
+
+        return $user;
     }
 
 }

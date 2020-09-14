@@ -21,5 +21,11 @@ class DatabaseSeeder extends Seeder
         Need::factory(6)->create();
         Ong::factory(5)->create();
         User::factory(5)->create();
+
+        $user = User::create([
+            'name' => 'Marcos Medeiros',
+            'mail' => 'm4arcos@gmail.com',
+            'password' => md5('pass')
+        ]);
     }
 }

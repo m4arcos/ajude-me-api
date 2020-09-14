@@ -49,3 +49,5 @@ Route::prefix('users')->group(function () {
     Route::put('/{id}', [App\Http\Controllers\UserController::class, 'edit']);
     Route::delete('/{id}', [App\Http\Controllers\UserController::class, 'delete']);
 });
+
+Route::post('auth', [App\Http\Controllers\UserController::class, 'auth']);
