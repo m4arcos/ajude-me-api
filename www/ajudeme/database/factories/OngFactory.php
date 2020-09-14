@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Ong;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class OngFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Ong::class;
 
     /**
      * Define the model's default state.
@@ -27,9 +28,9 @@ class UserFactory extends Factory
         $this->faker->addProvider(new \Faker\Provider\pt_BR\PhoneNumber($this->faker));
 
         return [
-            'name' => $this->faker->name(),
+            'name' => 'ONG - ' . $this->faker->company(),
+            'owner' => $this->faker->name(),
             'mail' => $this->faker->email(),
-            'password' => md5($this->faker->word()), 
             'phone' => $this->faker->phone(),
             'cellphone' => $this->faker->phone(),
         ];
